@@ -21,7 +21,11 @@ namespace TypingGame
                         string responseBody = await response.Content.ReadAsStringAsync();
                         string randomWord = responseBody.Replace("[\"", "").Replace("\"]", "");
                         Console.WriteLine("Type exit() to Exit");
-                        Console.WriteLine($"Random Word ({randomWord}): ");
+                        Console.Write("Random Word (");
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write($"{randomWord}");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("): ");
                         string TypedWord = Console.ReadLine();
                         if (TypedWord == randomWord){
                             score++;
